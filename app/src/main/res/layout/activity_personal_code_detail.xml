@@ -53,14 +53,14 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/btn_create"
+            android:id="@+id/btn_unduh"
             style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="6dp"
             android:layout_weight="0"
             android:background="@color/black_02"
-            android:contentDescription="@string/buat"
+            android:contentDescription="@string/unduh"
             app:srcCompat="@drawable/unduh" />
 
         <ImageButton
@@ -71,6 +71,7 @@
             android:layout_marginHorizontal="6dp"
             android:layout_weight="0"
             android:background="@color/black_02"
+            android:onClick="onShareButtonClick"
             android:contentDescription="@string/kirim"
             app:srcCompat="@drawable/kirim" />
 
