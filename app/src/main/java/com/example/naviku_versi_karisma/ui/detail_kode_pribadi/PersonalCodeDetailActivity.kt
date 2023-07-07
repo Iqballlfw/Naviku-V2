@@ -12,7 +12,6 @@ import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
@@ -39,6 +38,8 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_CODE = "extra_code"
+        const val ALERT_DIALOG_CLOSE = 10
+        const val ALERT_DIALOG_DELETE = 20
     }
 
     private var _activityPersonalCodeDetailBinding: ActivityPersonalCodeDetailBinding? = null
@@ -47,18 +48,6 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
     private lateinit var personalCodeDetailViewModel: PersonalCodeDetailViewModel
 
     private var code: Code? = null
-
-    private lateinit var ivQRCode : ImageView
-    private lateinit var etData : EditText
-    private lateinit var btnGenerateQRCode : Button
-    private lateinit var saveImage : Button
-    private lateinit var hasil : TextView
-    private lateinit var view: CardView
-    private lateinit var sharewa: Button
-    private lateinit var sharepdf: Button
-    private lateinit var pdfImage : Button
-    private val STORAGE_CODE = 1001
-    private var pdfFileUri: Uri? = null
 
     private val createPdfLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -82,8 +71,6 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
 
         @Suppress("DEPRECATION")
         code = intent.getParcelableExtra(EXTRA_CODE)
-
-
 
 
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),1)
@@ -114,7 +101,7 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
         }
 
 
-        binding?.btnUnduh?.setOnClickListener {
+        binding?.btnDownloadCodeDetail?.setOnClickListener {
             createPDFFile()
         }
 
@@ -128,6 +115,7 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
 
                 val intent = Intent(this@PersonalCodeDetailActivity, PersonalCodeListActivity::class.java)
                 startActivity(intent)
+                finish()
             }
             alertDialogBuilder.setNegativeButton("Tidak") { dialog, _ ->
                 dialog.dismiss()
@@ -136,9 +124,10 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
             alertDialog.show()
         }
 
-        binding?.btnHomeCodeDetail?.setOnClickListener {
-            val intent = Intent(this@PersonalCodeDetailActivity, MainActivity::class.java)
+        binding?.btnBackCodeDetail?.setOnClickListener {
+            val intent = Intent(this@PersonalCodeDetailActivity, PersonalCodeListActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
@@ -157,6 +146,7 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
         intent.putExtra(Intent.EXTRA_TITLE, generateFileName())
 
         createPdfLauncher.launch(intent)
+        finish()
     }
 
     private fun savePDF(uri: Uri) {
@@ -296,6 +286,7 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
         shareIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(createWhatsAppIntent(uri), createBluetoothIntent(uri)))
 
         startActivity(shareIntent)
+        finish()
     }
 
     private fun createWhatsAppIntent(uri: Uri?): Intent {
@@ -334,5 +325,10 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
     private fun obtainViewModel(activity: AppCompatActivity): PersonalCodeDetailViewModel {
         val factory = ViewModelFactory.getInstance(activity.application)
         return ViewModelProvider(activity, factory)[PersonalCodeDetailViewModel::class.java]
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _activityPersonalCodeDetailBinding = null
     }
 }
