@@ -38,6 +38,8 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_CODE = "extra_code"
+        const val ALERT_DIALOG_CLOSE = 10
+        const val ALERT_DIALOG_DELETE = 20
     }
 
     private var _activityPersonalCodeDetailBinding: ActivityPersonalCodeDetailBinding? = null
@@ -113,6 +115,7 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
 
                 val intent = Intent(this@PersonalCodeDetailActivity, PersonalCodeListActivity::class.java)
                 startActivity(intent)
+                finish()
             }
             alertDialogBuilder.setNegativeButton("Tidak") { dialog, _ ->
                 dialog.dismiss()
@@ -121,9 +124,10 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
             alertDialog.show()
         }
 
-        binding?.btnHomeCodeDetail?.setOnClickListener {
-            val intent = Intent(this@PersonalCodeDetailActivity, MainActivity::class.java)
+        binding?.btnBackCodeDetail?.setOnClickListener {
+            val intent = Intent(this@PersonalCodeDetailActivity, PersonalCodeListActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
@@ -142,6 +146,7 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
         intent.putExtra(Intent.EXTRA_TITLE, generateFileName())
 
         createPdfLauncher.launch(intent)
+        finish()
     }
 
     private fun savePDF(uri: Uri) {
@@ -281,6 +286,7 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
         shareIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(createWhatsAppIntent(uri), createBluetoothIntent(uri)))
 
         startActivity(shareIntent)
+        finish()
     }
 
     private fun createWhatsAppIntent(uri: Uri?): Intent {
@@ -319,5 +325,10 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
     private fun obtainViewModel(activity: AppCompatActivity): PersonalCodeDetailViewModel {
         val factory = ViewModelFactory.getInstance(activity.application)
         return ViewModelProvider(activity, factory)[PersonalCodeDetailViewModel::class.java]
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _activityPersonalCodeDetailBinding = null
     }
 }

@@ -3,12 +3,13 @@ package com.example.naviku_versi_karisma.ui.kode_pribadi
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.naviku_versi_karisma.databinding.ActivityPersonalCodeListBinding
 import com.example.naviku_versi_karisma.helper.ViewModelFactory
 import com.example.naviku_versi_karisma.ui.add.AddCodeActivity
-import com.example.naviku_versi_karisma.ui.main.MainActivity
+import com.example.naviku_versi_karisma.ui.kodeku.Kodeku
 
 class PersonalCodeListActivity : AppCompatActivity() {
 
@@ -26,7 +27,14 @@ class PersonalCodeListActivity : AppCompatActivity() {
         val personalCodeListViewModel = obtainViewModel(this@PersonalCodeListActivity)
         personalCodeListViewModel.getAllCodes().observe(this) { codeList ->
             if (codeList != null) {
-                adapter.setListCodes(codeList)
+                if (codeList.isNotEmpty()) {
+                    binding?.ivBlankImg?.visibility = View.INVISIBLE
+                    binding?.tvBlankData?.visibility = View.INVISIBLE
+                    adapter.setListCodes(codeList)
+                } else {
+                    binding?.ivBlankImg?.visibility = View.VISIBLE
+                    binding?.tvBlankData?.visibility = View.VISIBLE
+                }
             }
         }
 
@@ -39,11 +47,13 @@ class PersonalCodeListActivity : AppCompatActivity() {
         binding?.btnCreateCodeList?.setOnClickListener {
             val intent = Intent(this@PersonalCodeListActivity, AddCodeActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
-        binding?.btnHomeCodeList?.setOnClickListener {
-            val intent = Intent(this@PersonalCodeListActivity, MainActivity::class.java)
+        binding?.btnBackCodeList?.setOnClickListener {
+            val intent = Intent(this@PersonalCodeListActivity, Kodeku::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

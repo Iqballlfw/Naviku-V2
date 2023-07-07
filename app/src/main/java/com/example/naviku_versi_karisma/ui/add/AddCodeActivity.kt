@@ -54,6 +54,12 @@ class AddCodeActivity : AppCompatActivity() {
                 }
             }
         }
+
+        binding?.btnBackAddCode?.setOnClickListener {
+            val intent = Intent(this@AddCodeActivity, PersonalCodeListActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun showToast(message: String) {
