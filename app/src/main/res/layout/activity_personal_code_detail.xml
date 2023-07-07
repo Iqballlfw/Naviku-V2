@@ -65,6 +65,7 @@
             android:layout_weight="0"
             android:background="@color/black_02"
             android:contentDescription="@string/kirim"
+            android:onClick="onShareButtonClick"
             app:srcCompat="@drawable/kirim" />
 
         <ImageButton

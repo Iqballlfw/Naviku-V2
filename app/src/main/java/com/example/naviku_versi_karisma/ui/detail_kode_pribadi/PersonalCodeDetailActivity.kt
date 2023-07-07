@@ -12,7 +12,6 @@ import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
@@ -48,18 +47,6 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
 
     private var code: Code? = null
 
-    private lateinit var ivQRCode : ImageView
-    private lateinit var etData : EditText
-    private lateinit var btnGenerateQRCode : Button
-    private lateinit var saveImage : Button
-    private lateinit var hasil : TextView
-    private lateinit var view: CardView
-    private lateinit var sharewa: Button
-    private lateinit var sharepdf: Button
-    private lateinit var pdfImage : Button
-    private val STORAGE_CODE = 1001
-    private var pdfFileUri: Uri? = null
-
     private val createPdfLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -82,8 +69,6 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
 
         @Suppress("DEPRECATION")
         code = intent.getParcelableExtra(EXTRA_CODE)
-
-
 
 
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),1)
@@ -114,7 +99,7 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
         }
 
 
-        binding?.btnUnduh?.setOnClickListener {
+        binding?.btnDownloadCodeDetail?.setOnClickListener {
             createPDFFile()
         }
 
