@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
@@ -38,8 +39,6 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_CODE = "extra_code"
-        const val ALERT_DIALOG_CLOSE = 10
-        const val ALERT_DIALOG_DELETE = 20
     }
 
     private var _activityPersonalCodeDetailBinding: ActivityPersonalCodeDetailBinding? = null
@@ -107,20 +106,40 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
 
         binding?.btnDeleteCodeDetail?.setOnClickListener {
             val alertDialogBuilder = AlertDialog.Builder(this@PersonalCodeDetailActivity)
-            alertDialogBuilder.setTitle("Konfirmasi")
-            alertDialogBuilder.setMessage("Apakah Anda yakin ingin menghapus kode ini?")
-            alertDialogBuilder.setPositiveButton("Ya") { _, _ ->
+
+            // Mengatur tampilan kustom dari layout XML
+            val layoutInflater = LayoutInflater.from(this@PersonalCodeDetailActivity)
+            val view = layoutInflater.inflate(R.layout.custom_alert_dialog, null)
+            alertDialogBuilder.setView(view)
+
+            // Dapatkan referensi ke elemen UI dalam tampilan kustom Anda
+            val btnPositive = view.findViewById<Button>(R.id.btn_positive)
+            val btnNegative = view.findViewById<Button>(R.id.btn_negative)
+            val dialogMessage = view.findViewById<TextView>(R.id.tv_dialog)
+
+            // Atur teks judul dan pesan
+            dialogMessage.text = "Apakah Anda yakin ingin menghapus kode ini?"
+
+            val alertDialog = alertDialogBuilder.create()
+
+            // Atur onClickListener untuk tombol positif
+            btnPositive.setOnClickListener { view ->
+                // Kode yang akan dijalankan saat tombol "Hapus" diklik
                 personalCodeDetailViewModel.delete(code as Code)
                 showToast(getString(R.string.deleted))
 
                 val intent = Intent(this@PersonalCodeDetailActivity, PersonalCodeListActivity::class.java)
                 startActivity(intent)
-                finish()
+
+                alertDialog.dismiss()
             }
-            alertDialogBuilder.setNegativeButton("Tidak") { dialog, _ ->
-                dialog.dismiss()
+
+            // Atur onClickListener untuk tombol negatif
+            btnNegative.setOnClickListener { view ->
+                alertDialog.dismiss()
             }
-            val alertDialog = alertDialogBuilder.create()
+
+            // Menampilkan AlertDialog dengan tampilan kustom
             alertDialog.show()
         }
 
