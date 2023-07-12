@@ -20,16 +20,17 @@
 
     <TextView
         android:id="@+id/tv_code_desc"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/nama_qr_code"
+        android:textColor="@color/white_01"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/white_01"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="@+id/iv_code_img"
         app:layout_constraintStart_toStartOf="@+id/iv_code_img"
-        app:layout_constraintTop_toBottomOf="@+id/iv_code_img"
-        android:text="@string/nama_qr_code" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_code_img" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

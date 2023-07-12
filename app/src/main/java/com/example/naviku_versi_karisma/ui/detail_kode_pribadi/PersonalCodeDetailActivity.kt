@@ -165,7 +165,6 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
         intent.putExtra(Intent.EXTRA_TITLE, generateFileName())
 
         createPdfLauncher.launch(intent)
-        finish()
     }
 
     private fun savePDF(uri: Uri) {
