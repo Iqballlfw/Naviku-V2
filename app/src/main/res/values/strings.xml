@@ -21,4 +21,9 @@
     <string name="belum_ada_kode_qr_yang_dibuat">Belum ada kode QR yang dibuat</string>
     <string name="kode_pribadi">Kode Pribadi</string>
     <string name="kode_naviku">Kode Naviku</string>
+    <string name="kotak_input">Kotak Input</string>
+    <string name="nama_qr_code">Nama QR Code</string>
+    <string name="apakah_anda_yakin_ingin_menghapus_kode_ini">Apakah Anda yakin ingin menghapus kode ini?</string>
+    <string name="hapus_kode">Hapus</string>
+    <string name="batal">Batal</string>
 </resources>

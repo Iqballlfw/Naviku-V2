@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/black_02"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tv_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="24sp"
+        android:lineHeight="34sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/white_01"
+        android:text="@string/apakah_anda_yakin_ingin_menghapus_kode_ini" />
+
+    <LinearLayout
+        android:id="@+id/ly_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="48dp">
+
+        <Button
+            android:id="@+id/btn_negative"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white_01"
+            android:text="@string/batal" />
+
+        <Button
+            android:id="@+id/btn_positive"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/red_danger"
+            android:text="@string/hapus_kode"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingVertical="16sp"
+            android:textColor="@color/white_01" />
+    </LinearLayout>
+
+</LinearLayout>
