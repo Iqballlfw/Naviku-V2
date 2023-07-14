@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/actionBarSize"
-    android:background="@color/purple_dark">
+    android:background="@color/purple_dark"
+    android:contentDescription="@string/personal_code_list_appbar_page">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_back_personal_code"
@@ -25,6 +26,7 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="@color/white_01"
+        android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_back_personal_code"
         app:layout_constraintTop_toTopOf="parent" />

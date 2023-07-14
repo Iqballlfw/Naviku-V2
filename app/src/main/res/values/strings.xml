@@ -19,13 +19,14 @@
     <string name="deleted">Satu QR code berhasil dihapus</string>
     <string name="kembali">kembali</string>
     <string name="belum_ada_kode_qr_yang_dibuat">Belum ada kode QR yang dibuat</string>
-    <string name="kode_pribadi">Kode Pribadi</string>
+    <string name="kode_pribadi">Kode Pribadi, kumpulan kode QR buatan anda sendiri</string>
     <string name="kode_naviku">Kode Naviku</string>
     <string name="kotak_input">Kotak Input</string>
     <string name="nama_qr_code">Nama QR Code</string>
     <string name="apakah_anda_yakin_ingin_menghapus_kode_ini">Apakah Anda yakin ingin menghapus kode ini?</string>
     <string name="hapus_kode">Hapus</string>
     <string name="batal">Batal</string>
+    <string name="title_code_desc">Deskripsi kode QR, judul</string>
 
 <!--    string for appbar-->
     <string name="kodeku_appbar">Kodeku</string>
@@ -33,5 +34,9 @@
     <string name="naviku_code_appbar">Kode Naviku</string>
     <string name="add_code_appbar">Buat Kode Baru</string>
     <string name="code_detail_appbar">Detail Kode</string>
-
+    <string name="add_code_appbar_page">Halaman Buat Kode Baru</string>
+    <string name="personal_code_list_appbar_page">Halaman Daftar Kode Pribadi</string>
+    <string name="personal_code_detail_appbar_page">Halaman Detail Kode</string>
+    <string name="kodeku_appbar_page">Halaman Kodeku</string>
+    <string name="blank_code_desc">Gambar Kode QR</string>
 </resources>

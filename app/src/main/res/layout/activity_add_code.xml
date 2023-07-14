@@ -36,9 +36,11 @@
             android:layout_gravity="center"
             android:gravity="start"
             android:text="@string/deskripsi_head"
+            android:contentDescription="@string/title_code_desc"
             android:textColor="@color/white_01"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
 
         <EditText
             android:id="@+id/edt_desc"

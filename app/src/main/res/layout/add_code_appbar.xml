@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/actionBarSize"
+    android:contentDescription="@string/add_code_appbar_page"
     android:background="@color/purple_dark">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -25,6 +26,7 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="@color/white_01"
+        android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_back_add_code"
         app:layout_constraintTop_toTopOf="parent" />
