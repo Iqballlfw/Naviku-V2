@@ -60,6 +60,12 @@ class AddCodeActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        binding?.abAddCode?.ivBackAddCode?.setOnClickListener {
+            val back = Intent(this@AddCodeActivity, PersonalCodeListActivity::class.java)
+            startActivity(back)
+            finish()
+        }
     }
 
     private fun showToast(message: String) {

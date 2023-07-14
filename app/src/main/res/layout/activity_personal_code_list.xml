@@ -8,15 +8,21 @@
     android:background="@color/black_01"
     tools:context=".ui.kode_pribadi.PersonalCodeListActivity">
 
+    <include
+        android:id="@+id/ab_personal_code_list"
+        layout="@layout/personal_code_list_appbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_codes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="550dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ab_personal_code_list" />
 
     <ImageView
         android:id="@+id/iv_blank_img"

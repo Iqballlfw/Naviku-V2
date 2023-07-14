@@ -148,6 +148,12 @@ class PersonalCodeDetailActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        binding?.abPersonalCodeDetail?.ivBackPersonalCodeDetail?.setOnClickListener {
+            val back = Intent(this@PersonalCodeDetailActivity, PersonalCodeListActivity::class.java)
+            startActivity(back)
+            finish()
+        }
     }
 
     private fun getImageOfView(): Bitmap? {

@@ -21,7 +21,7 @@
     </style>
 
     <!--    splash screen-->
-    <style name="KodekuTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="KodekuTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/purple_dark</item>
         <item name="colorPrimaryVariant">@color/purple_light</item>
         <item name="colorOnPrimary">@color/white_01</item>

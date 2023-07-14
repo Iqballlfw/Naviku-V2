@@ -7,6 +7,13 @@
     android:background="@color/black_01"
     tools:context=".ui.add.AddCodeActivity">
 
+    <include
+        android:id="@+id/ab_add_code"
+        layout="@layout/add_code_appbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
@@ -19,8 +26,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093">
+        app:layout_constraintTop_toBottomOf="@+id/ab_add_code"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/tv_desc"
@@ -59,8 +66,8 @@
             android:layout_height="64dp"
             android:layout_marginTop="32dp"
             android:backgroundTint="@color/purple_dark"
-            android:textColor="@color/white_01"
             android:text="@string/Button_Simpan"
+            android:textColor="@color/white_01"
             android:textSize="16sp" />
 
 

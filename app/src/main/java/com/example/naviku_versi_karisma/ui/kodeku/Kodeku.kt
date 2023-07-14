@@ -18,6 +18,10 @@ class Kodeku : AppCompatActivity() {
         binding = ActivityKodekuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initUI()
+    }
+
+    private fun initUI() {
         binding.btnHomeKodeku.setOnClickListener {
             val homePage = Intent(this@Kodeku, MainActivity::class.java)
             startActivity(homePage)
@@ -27,6 +31,12 @@ class Kodeku : AppCompatActivity() {
         binding.ibPersonalCode.setOnClickListener {
             val personalCodeList = Intent(this@Kodeku, PersonalCodeListActivity::class.java)
             startActivity(personalCodeList)
+            finish()
+        }
+
+        binding.abKodeku.ivBackKodeku.setOnClickListener {
+            val back = Intent(this@Kodeku, MainActivity::class.java)
+            startActivity(back)
             finish()
         }
     }

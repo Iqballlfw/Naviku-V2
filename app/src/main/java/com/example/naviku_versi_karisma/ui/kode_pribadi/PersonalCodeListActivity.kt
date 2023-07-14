@@ -55,6 +55,12 @@ class PersonalCodeListActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        binding?.abPersonalCodeList?.ivBackPersonalCode?.setOnClickListener {
+            val back = Intent(this@PersonalCodeListActivity, Kodeku::class.java)
+            startActivity(back)
+            finish()
+        }
     }
 
     override fun onDestroy() {

@@ -8,6 +8,13 @@
     android:background="@color/black_01"
     tools:context=".ui.kodeku.Kodeku">
 
+    <include
+        android:id="@+id/ab_personal_code_detail"
+        layout="@layout/personal_code_detail_appbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/iv_code_img"
         android:layout_width="200dp"

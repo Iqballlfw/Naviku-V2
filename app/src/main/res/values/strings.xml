@@ -26,4 +26,12 @@
     <string name="apakah_anda_yakin_ingin_menghapus_kode_ini">Apakah Anda yakin ingin menghapus kode ini?</string>
     <string name="hapus_kode">Hapus</string>
     <string name="batal">Batal</string>
+
+<!--    string for appbar-->
+    <string name="kodeku_appbar">Kodeku</string>
+    <string name="personal_code_appbar">Kode Pribadi</string>
+    <string name="naviku_code_appbar">Kode Naviku</string>
+    <string name="add_code_appbar">Buat Kode Baru</string>
+    <string name="code_detail_appbar">Detail Kode</string>
+
 </resources>
