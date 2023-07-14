@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="24dp"
             android:background="@color/black_02"
-            android:contentDescription="@string/beranda"
+            android:contentDescription="@string/kode_pribadi"
             app:srcCompat="@drawable/kode_pribadi" />
 
         <ImageButton
@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="24dp"
             android:background="@color/black_02"
-            android:contentDescription="@string/beranda"
+            android:contentDescription="@string/kode_naviku"
             app:srcCompat="@drawable/kode_naviku" />
     </LinearLayout>
 

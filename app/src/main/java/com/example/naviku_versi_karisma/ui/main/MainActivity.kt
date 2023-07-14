@@ -209,7 +209,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
                             }
 
                         }
-                    }, 3000)
+                    }, 6000)
                 }
             }
 

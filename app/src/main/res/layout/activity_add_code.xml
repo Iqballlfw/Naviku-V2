@@ -90,7 +90,7 @@
             android:layout_marginHorizontal="6dp"
             android:layout_weight="0"
             android:background="@color/black_02"
-            android:contentDescription="@string/beranda"
+            android:contentDescription="@string/kembali"
             app:srcCompat="@drawable/kembali" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
