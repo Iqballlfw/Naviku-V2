@@ -2,7 +2,7 @@ package com.example.naviku_versi_karisma.data.response
 
 import com.google.gson.annotations.SerializedName
 
- class CodeResponse(
+data class CodeResponse(
 
 	@field:SerializedName("data")
 	val data: List<DataItem>,
@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName
 	val message: String
 )
 
- class DataItem(
+data class DataItem(
 
 	@field:SerializedName("pdfFile")
 	val pdfFile: String,

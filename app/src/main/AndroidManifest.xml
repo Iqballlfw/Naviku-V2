@@ -32,6 +32,9 @@
         android:theme="@style/Theme.Naviku_versi_karisma"
         tools:targetApi="31">
         <activity
+            android:name=".RuanganCodeDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.category.ruangan.RuanganCategoryActivity"
             android:exported="false" />
         <activity

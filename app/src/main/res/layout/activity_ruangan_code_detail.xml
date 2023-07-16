@@ -4,49 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.kode_pribadi.PersonalCodeListActivity">
+    tools:context=".ui.detail.ruangan.RuanganCodeDetailActivity">
 
     <include
-        android:id="@+id/ab_personal_code_list"
-        layout="@layout/personal_code_list_appbar"
+        android:id="@+id/ab_personal_code_detail"
+        layout="@layout/ruangan_code_detail_appbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_codes"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="2dp"
+    <ImageView
+        android:id="@+id/iv_code_img"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/kodeqr_nodata"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ab_personal_code_list" />
-
-    <ImageView
-        android:id="@+id/iv_blank_img"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:srcCompat="@drawable/kodeqr_nodata"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="@+id/rv_codes"
-        app:layout_constraintStart_toStartOf="@+id/rv_codes"
-        app:layout_constraintTop_toTopOf="@+id/rv_codes" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/blank_code_desc"/>
 
     <TextView
-        android:id="@+id/tv_blank_data"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_code_desc"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/belum_ada_kode_qr_yang_dibuat"
+        android:layout_marginTop="24dp"
+        android:text="@string/nama_qr_code"
+        android:textColor="@color/white_01"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/iv_blank_img"
-        app:layout_constraintStart_toStartOf="@+id/iv_blank_img"
-        app:layout_constraintTop_toBottomOf="@+id/iv_blank_img"
-        android:visibility="invisible"/>
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/iv_code_img"
+        app:layout_constraintStart_toStartOf="@+id/iv_code_img"
+        app:layout_constraintTop_toBottomOf="@+id/iv_code_img" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -64,18 +54,29 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/btn_create_code_list"
+            android:id="@+id/btn_download_ruangan_code_detail"
             style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="6dp"
             android:layout_weight="0"
             android:background="@color/black_02"
-            android:contentDescription="@string/buat"
-            app:srcCompat="@drawable/buat" />
+            android:contentDescription="@string/unduh"
+            app:srcCompat="@drawable/unduh" />
 
         <ImageButton
-            android:id="@+id/btn_back_code_list"
+            android:id="@+id/btn_share_ruangan_code_detail"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="6dp"
+            android:layout_weight="0"
+            android:background="@color/black_02"
+            android:contentDescription="@string/kirim"
+            app:srcCompat="@drawable/kirim" />
+
+        <ImageButton
+            android:id="@+id/btn_back_ruangan_code_detail"
             style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
