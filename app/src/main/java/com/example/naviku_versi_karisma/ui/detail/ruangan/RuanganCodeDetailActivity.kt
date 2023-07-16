@@ -2,7 +2,7 @@ package com.example.naviku_versi_karisma.ui.detail.ruangan
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.example.naviku_versi_karisma.databinding.ActivityRuanganCodeDetailBinding
 
@@ -13,7 +13,7 @@ class RuanganCodeDetailActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityRuanganCodeDetailBinding
-    private lateinit var viewModel: RuanganCodeDetailViewModel
+    private val viewModel by viewModels<RuanganCodeDetailViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,14 +21,9 @@ class RuanganCodeDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val id = intent.getStringExtra(EXTRA_ID)
+        viewModel.setCodeDetail(id)
 
-        viewModel = ViewModelProvider(this)[RuanganCodeDetailViewModel::class.java]
-
-        if (id != null) {
-            viewModel.setCodeDetail(id)
-        }
-
-        viewModel.ruangaDetailCode.observe(this) { detailCode ->
+        viewModel.ruanganDetailCode.observe(this) { detailCode ->
             binding.apply {
                 tvCodeDesc.text = detailCode.name
 

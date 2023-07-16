@@ -24,21 +24,16 @@ class RuanganCategoryActivity : AppCompatActivity() {
         binding = ActivityRuanganCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Inisialisasi ruanganCategoryViewModel
         ruanganCategoryViewModel = ViewModelProvider(this)[RuanganCategoryViewModel::class.java]
 
-        binding.rvRuanganCodes.layoutManager = LinearLayoutManager(this)
-        binding.rvRuanganCodes.setHasFixedSize(true)
-
-        ruanganCategoryViewModel.dataItem.observe(this) { ruanganCodeList ->
-            setRuanganCodeList(ruanganCodeList)
+        showRecyclerViewList()
+        ruanganCategoryViewModel.dataItem.observe(this) { listRuanganCode ->
+            binding.rvRuanganCodes.adapter = RuanganCategoryAdapter(listRuanganCode)
         }
 
         ruanganCategoryViewModel.isLoading.observe(this) {
             showLoading(it)
         }
-
-
 
         binding.btnBackNavikuCode.setOnClickListener {
             val back = Intent(this@RuanganCategoryActivity, Kodeku::class.java)
@@ -53,13 +48,11 @@ class RuanganCategoryActivity : AppCompatActivity() {
         }
     }
 
-    private fun setRuanganCodeList(ruanganCode: List<DataItem>) {
-        val listCode = ArrayList<String>()
-        for (code in ruanganCode) {
-            listCode.add(code.name)
+    private fun showRecyclerViewList() {
+        binding.rvRuanganCodes.apply {
+            layoutManager = LinearLayoutManager(this@RuanganCategoryActivity)
+            setHasFixedSize(true)
         }
-        val adapter = RuanganCategoryAdapter(listCode)
-        binding.rvRuanganCodes.adapter = adapter
     }
 
     private fun showLoading(isLoading: Boolean) {
@@ -69,5 +62,4 @@ class RuanganCategoryActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.GONE
         }
     }
-
 }
