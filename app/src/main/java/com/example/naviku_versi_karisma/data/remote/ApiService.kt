@@ -14,5 +14,5 @@ interface ApiService {
     ): Call<CodeResponse>
 
     @GET("ruangan")
-    fun getAllCodes() : Call<ArrayList<RuanganResponse>>
+    fun getAllCodes() : Call<RuanganResponse>
 }
