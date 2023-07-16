@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.naviku_versi_karisma.R
 import com.example.naviku_versi_karisma.databinding.ActivityKodekuBinding
+import com.example.naviku_versi_karisma.ui.kode_naviku.NavikuCodeListActivity
 import com.example.naviku_versi_karisma.ui.kode_pribadi.PersonalCodeListActivity
 import com.example.naviku_versi_karisma.ui.main.MainActivity
 
@@ -31,6 +32,12 @@ class Kodeku : AppCompatActivity() {
         binding.ibPersonalCode.setOnClickListener {
             val personalCodeList = Intent(this@Kodeku, PersonalCodeListActivity::class.java)
             startActivity(personalCodeList)
+            finish()
+        }
+
+        binding.ibNavikuCode.setOnClickListener {
+            val navikuCodeList = Intent(this@Kodeku, NavikuCodeListActivity::class.java)
+            startActivity(navikuCodeList)
             finish()
         }
 

@@ -28,7 +28,7 @@
     <string name="batal">Batal</string>
     <string name="title_code_desc">Deskripsi kode QR, judul</string>
 
-<!--    string for appbar-->
+    <!--    string for appbar-->
     <string name="kodeku_appbar">Kodeku</string>
     <string name="personal_code_appbar">Kode Pribadi</string>
     <string name="naviku_code_appbar">Kode Naviku</string>
@@ -39,4 +39,7 @@
     <string name="personal_code_detail_appbar_page">Halaman Detail Kode</string>
     <string name="kodeku_appbar_page">Halaman Kodeku</string>
     <string name="blank_code_desc">Gambar Kode QR</string>
+    <string name="ruangan">Ruangan</string>
+    <string name="kategori_ruangan_appbar">Kategori Ruangan</string>
+    <string name="kategori_ruangan_appbar_page">Halaman Kategori Ruangan</string>
 </resources>
