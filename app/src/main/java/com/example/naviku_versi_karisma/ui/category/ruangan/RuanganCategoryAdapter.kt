@@ -1,12 +1,13 @@
 package com.example.naviku_versi_karisma.ui.category.ruangan
 
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.naviku_versi_karisma.R
 import com.example.naviku_versi_karisma.databinding.ItemRowRuanganCodeBinding
+import com.example.naviku_versi_karisma.ui.detail.ruangan.RuanganCodeDetailActivity
+import com.example.naviku_versi_karisma.ui.detail.ruangan.RuanganCodeDetailActivity.Companion.EXTRA_ID
 
 
 class RuanganCategoryAdapter(private val listRuangan: List<String>) :
@@ -14,7 +15,18 @@ class RuanganCategoryAdapter(private val listRuangan: List<String>) :
 
     inner class ViewHolder(private val binding: ItemRowRuanganCodeBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val tvItemRuangan = binding.tvItemRuangan
+
+            fun bind(code: String) {
+                binding.apply {
+                    tvItemRuangan.text = code
+                }
+
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, RuanganCodeDetailActivity::class.java)
+                    intent.putExtra(EXTRA_ID, code)
+                    itemView.context.startActivity(intent)
+                }
+            }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,6 +41,6 @@ class RuanganCategoryAdapter(private val listRuangan: List<String>) :
     override fun getItemCount() = listRuangan.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvItemRuangan.text = listRuangan[position]
+        holder.bind(listRuangan[position])
     }
 }

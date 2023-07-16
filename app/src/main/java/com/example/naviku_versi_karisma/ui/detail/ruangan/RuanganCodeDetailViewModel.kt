@@ -5,14 +5,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.naviku_versi_karisma.data.remote.ApiConfig
-import com.example.naviku_versi_karisma.data.response.DataItem
+import com.example.naviku_versi_karisma.data.response.DetailDataItem
+import com.example.naviku_versi_karisma.data.response.RuanganDetailResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class RuanganCodeDetailViewModel : ViewModel() {
 
-    val detailCode = MutableLiveData<DataItem>()
+    private val _ruanganCodeDetailResponse = MutableLiveData<RuanganDetailResponse>()
+    val ruanganCodeDetailResponse: LiveData<RuanganDetailResponse> = _ruanganCodeDetailResponse
+
+    private val _ruangaDetailCode = MutableLiveData<DetailDataItem>()
+    val ruangaDetailCode: LiveData<DetailDataItem> = _ruangaDetailCode
 
     companion object {
         private const val TAG = "RuanganCodeDetailViewModel"
@@ -20,23 +25,18 @@ class RuanganCodeDetailViewModel : ViewModel() {
 
     fun setCodeDetail(id: String) {
         val client = ApiConfig.getApiService().getCode(id)
-        client.enqueue(object : Callback<DataItem> {
-            override fun onResponse(call: Call<DataItem>, response: Response<DataItem>) {
+        client.enqueue(object : Callback<RuanganDetailResponse> {
+            override fun onResponse(call: Call<RuanganDetailResponse>, response: Response<RuanganDetailResponse>) {
                 if (response.isSuccessful) {
-                    detailCode.postValue(response.body())
+                    _ruanganCodeDetailResponse.value = response.body()
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
 
-            override fun onFailure(call: Call<DataItem>, t: Throwable) {
+            override fun onFailure(call: Call<RuanganDetailResponse>, t: Throwable) {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
-
         })
-    }
-
-    fun getCodeDetail(): LiveData<DataItem> {
-        return detailCode
     }
 }
